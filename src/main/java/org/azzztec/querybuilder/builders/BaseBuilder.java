@@ -29,8 +29,6 @@ public abstract class BaseBuilder<T> extends ConditionBuilder<T>{
         for(int i = 0; i < values.size(); i++) {
             Object value = values.get(i);
             switch (value.getClass().getSimpleName()) {
-                case "ColumnType":
-                    continue;
                 case "String":
                     prepared.setString(inc.get(), (String)value);
                     break;
@@ -45,6 +43,9 @@ public abstract class BaseBuilder<T> extends ConditionBuilder<T>{
                     break;
                 case "Short":
                     prepared.setShort(inc.get(), (Short)value);
+                    break;
+                case "Long":
+                    prepared.setLong(inc.get(), (Long)value);
                     break;
                 case "Double":
                     prepared.setDouble(inc.get(), (Double)value);
@@ -61,6 +62,7 @@ public abstract class BaseBuilder<T> extends ConditionBuilder<T>{
                 default:
                     throw new TypeNotSupported(value.getClass().getSimpleName());
             }
+            inc.incrementAndGet();
         }
         return prepared;
     }

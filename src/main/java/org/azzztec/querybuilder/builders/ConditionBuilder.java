@@ -33,7 +33,7 @@ public class ConditionBuilder<T> {
         Triplet<String, Object, Condition> tripl;
         StringBuilder res = new StringBuilder("");
         try {
-            if(logicOperators.size() == conditions.size() - 1) {
+            if(logicOperators.size() == conditions.size() - 1 || logicOperators.isEmpty()) {
                 for (int i = 0; i < conditions.size(); i++) {
                     tripl = conditions.get(i);
                     res.append(" " + tripl.getValue0() + tripl.getValue2().getCharacter() + "`" + tripl.getValue1() + "`");

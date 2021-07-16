@@ -36,7 +36,7 @@ public class InsertBuilder extends BaseBuilder<InsertBuilder> implements Modifia
 
     @Override
     public List<Object> getValues() {
-        return this.queryParams.stream().map(pair -> pair.getValue0()).collect(Collectors.toList());
+        return this.queryParams.stream().map(pair -> pair.getValue1()).collect(Collectors.toList());
     }
 
     @Override
