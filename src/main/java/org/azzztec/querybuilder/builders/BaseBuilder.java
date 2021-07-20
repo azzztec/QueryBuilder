@@ -17,7 +17,7 @@ public abstract class BaseBuilder<T> extends ConditionBuilder<T>{
         this.tableName = tableName;
     }
 
-    public abstract String build() throws RelationExeption;
+    public abstract String build();
 
     protected abstract List<Object> getValues();
 

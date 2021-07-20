@@ -4,26 +4,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 public enum Condition {
-    EQUAL("=", LogicOperator.NONE),
-    NOTEQUAL("!=", LogicOperator.NONE),
-    SUPERIOR(">", LogicOperator.NONE),
-    SUPERIOR_EQUAL(">=", LogicOperator.NONE),
-    INFERIOR("<", LogicOperator.NONE),
-    INFERIOR_EQUAL("<=", LogicOperator.NONE),
-    IN("IN", LogicOperator.NONE),
-    NOTIN("NOT IN", LogicOperator.NONE),
-    LIKE("LIKE", LogicOperator.NONE);
+    EQUAL("="),
+    NOTEQUAL("!="),
+    SUPERIOR(">"),
+    SUPERIOR_EQUAL(">="),
+    INFERIOR("<"),
+    INFERIOR_EQUAL("<="),
+    IN("IN"),
+    NOTIN("NOT IN"),
+    LIKE("LIKE");
 
     @Getter
     private String character;
 
-    @Getter
-    @Setter
-    private LogicOperator logicOperator = LogicOperator.NONE;
-
-    private Condition(String character, LogicOperator logicOperator) {
+    private Condition(String character) {
         this.character = character;
-        this.logicOperator = logicOperator;
     }
 
 }

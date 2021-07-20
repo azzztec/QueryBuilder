@@ -1,20 +1,18 @@
 package org.azzztec.querybuilder.builders;
 
-import org.azzztec.querybuilder.exeptions.RelationExeption;
 import org.javatuples.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class InsertBuilder extends BaseBuilder<InsertBuilder> implements Modifiable<InsertBuilder>{
+public class InsertBuilder extends BaseBuilder<InsertBuilder>{
     private List<Pair<String, Object>> queryParams = new ArrayList<>();
 
     public InsertBuilder(String tableName) {
         super(tableName);
     }
 
-    @Override
     public InsertBuilder addValue(String key, Object value) {
         this.queryParams.add(new Pair(key, value));
         return this;
