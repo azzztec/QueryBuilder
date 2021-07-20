@@ -6,8 +6,11 @@ plugins {
 group 'org.azzztec'
 version '1.0.0'
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 }
 
 dependencies {
@@ -18,7 +21,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
     testCompileOnly 'org.projectlombok:lombok:1.18.20'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
-//    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
 }
 
 test {
