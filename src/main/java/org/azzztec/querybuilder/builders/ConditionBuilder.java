@@ -32,26 +32,25 @@ public class ConditionBuilder<T> {
     protected String buildCondition() {
         Triplet<String, Object, Condition> tripl;
         StringBuilder res = new StringBuilder("");
-        try {
-            if(logicOperators.size() == conditions.size() - 1) {
-                for (int i = 0; i < conditions.size(); i++) {
-                    tripl = conditions.get(i);
-                    res.append(" " + tripl.getValue0() + tripl.getValue2().getCharacter() + "`" + tripl.getValue1() + "`");
-                    if (!logicOperators.isEmpty()) {
-                        res.append(" " + logicOperators.poll() + " ");
+        if(!conditions.isEmpty()) {
+            try {
+                if(logicOperators.size() == conditions.size() - 1 || logicOperators.isEmpty()) {
+                    res.append(" WHERE");
+                    for (int i = 0; i < conditions.size(); i++) {
+                        tripl = conditions.get(i);
+                        res.append(" " + tripl.getValue0() + tripl.getValue2().getCharacter() + "'" + tripl.getValue1() + "'");
+                        if (!logicOperators.isEmpty()) {
+                            res.append(" " + logicOperators.poll() + " ");
+                        }
                     }
+                } else {
+                    throw new RelationExeption("Number of logic operators must be less by one");
                 }
-            } else {
-                throw new RelationExeption("Number of logic operators must be less by one");
+            } catch (RelationExeption e) {
+                System.out.println(e);
             }
-        } catch (RelationExeption e) {
-            System.out.println(e);
         }
 
         return res.append(";").toString();
-    }
-
-    private Triplet<String, Object, Condition> lastCondition() {
-        return conditions.get(conditions.size() - 1);
     }
 }
