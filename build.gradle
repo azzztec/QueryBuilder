@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group 'org.azzztec'
+group 'com.github.azzztec'
 version '1.0.0'
 
 allprojects {
