@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'maven-publish'
 }
 
@@ -26,4 +26,21 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+wrapper {
+    gradleVersion = "7.0.2"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = '${group}'
+            artifactId = 'jitpack-test'
+            version = '${version}'
+
+            from components.java
+        }
+    }
 }
