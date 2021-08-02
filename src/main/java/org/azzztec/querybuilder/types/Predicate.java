@@ -2,7 +2,7 @@ package org.azzztec.querybuilder.types;
 
 import lombok.Getter;
 
-public enum LogicOperator {
+public enum Predicate {
     AND("AND"),
     OR("OR"),
     NONE("");
@@ -10,7 +10,7 @@ public enum LogicOperator {
     @Getter
     final private String operator;
 
-    private LogicOperator(String operator) {
+    private Predicate(String operator) {
         this.operator = operator;
     }
 }

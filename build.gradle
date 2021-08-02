@@ -37,7 +37,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = "${group}"
-            artifactId = 'QueryBuilder'
+            artifactId = 'query-builder'
             version = "${version}"
 
             from components.java

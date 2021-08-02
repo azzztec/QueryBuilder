@@ -2,7 +2,7 @@ package org.azzztec.querybuilder.builders;
 
 import org.azzztec.querybuilder.exeptions.RelationExeption;
 import org.azzztec.querybuilder.types.Condition;
-import org.azzztec.querybuilder.types.LogicOperator;
+import org.azzztec.querybuilder.types.Predicate;
 import org.javatuples.Triplet;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.Queue;
 
 public class ConditionBuilder<T> {
     private List<Triplet<String, Object, Condition>> conditions = new ArrayList<>();
-    private Queue<LogicOperator> predicates = new LinkedList<>();
+    private Queue<Predicate> predicates = new LinkedList<>();
 
     public T where(String key, Object value, Condition condition) {
         conditions.add(new Triplet(key, value, condition));
@@ -20,12 +20,12 @@ public class ConditionBuilder<T> {
     }
 
     public T and() {
-        predicates.add(LogicOperator.AND);
+        predicates.add(Predicate.AND);
         return (T) this;
     }
 
     public T or() {
-        predicates.add(LogicOperator.OR);
+        predicates.add(Predicate.OR);
         return (T) this;
     }
 
