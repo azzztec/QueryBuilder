@@ -33,12 +33,12 @@ public class InsertBuilder extends BaseBuilder<InsertBuilder>{
     }
 
     @Override
-    public List<Object> getValues() {
+    protected List<Object> getValues() {
         return this.queryParams.stream().map(pair -> pair.getValue1()).collect(Collectors.toList());
     }
 
     @Override
-    public List<String> getKeys() {
+    protected List<String> getKeys() {
         return this.queryParams.stream().map(pair -> pair.getValue0()).collect(Collectors.toList());
     }
 }

@@ -33,12 +33,12 @@ public class UpdateBuilder extends BaseBuilder<UpdateBuilder> {
     }
 
     @Override
-    public List<Object> getValues() {
+    protected List<Object> getValues() {
         return this.queryParams.stream().map(tripl -> tripl.getValue1()).collect(Collectors.toList());
     }
 
     @Override
-    public List<String> getKeys() {
+    protected List<String> getKeys() {
         return this.queryParams.stream().map(tripl -> tripl.getValue0()).collect(Collectors.toList());
     }
 }
